@@ -6,4 +6,11 @@
 
 Profil autora: {{object}}
 
+<h2>Książki:</h2>
+<ul>
+    {% for book in object.book_set.all %}
+    <li>{{book.title}}</li>
+    {% endfor %}
+</ul>
+
 {% endblock %}
