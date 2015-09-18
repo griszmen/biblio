@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from contact.views import MessageAddView
+from contact.forms import MessageForm
 
 
 
