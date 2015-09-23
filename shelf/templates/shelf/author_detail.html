@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block 'content' %}
+{% block content %}
 
 <div><a href="{% url 'shelf:author-list' %}">Powrót do listy autorów:</a></div>
 
@@ -9,7 +9,7 @@ Profil autora: {{object}}
 <h2>Książki:</h2>
 <ul>
     {% for book in object.book_set.all %}
-    <li>{{book.title}}</li>
+    <li><a href="{{ book.get_absolute_url }}">{{book.title}}</a></li>
     {% endfor %}
 </ul>
 

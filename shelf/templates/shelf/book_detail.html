@@ -1,0 +1,13 @@
+{% extends 'base.html' %} {% load shelf_tags %}
+
+{% block content %}
+
+<a href="{% url 'shelf:book-list' %}">Lista Książek</a>
+
+<h1>{{object.title}}</h1>
+
+<h2>Wydania:</h2>
+
+{% show_editions object %}
+
+{% endblock %}}
