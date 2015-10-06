@@ -16,7 +16,8 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from contact.views import MessageAddView
-
+from django.conf.urls.static import static
+from django.conf import settings
 from contact.forms import MessageForm
 
 
@@ -24,7 +25,8 @@ from contact.forms import MessageForm
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^shelf/', include('shelf.urls', namespace='shelf')),
+    url(r'^rental/', include('rental.urls', namespace='rental')),
     url(r'^contact/$', MessageAddView.as_view()),
     url(r'^$', 'shelf.views.index_view', name='main-page'),
     url(r'^accounts/', include('allauth.urls')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
