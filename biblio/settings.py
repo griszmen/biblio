@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'allauth.socialaccount',
     'bootstrap3',
     'crispy_forms',
+    'rest_framework',
     #'allauth.socialaccount.providers.facebook',
     ################################
     'shelf',
@@ -158,3 +159,11 @@ LOGGING = {
 }
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissions'
+    ]
+}

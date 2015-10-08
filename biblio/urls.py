@@ -18,8 +18,7 @@ from django.contrib import admin
 from contact.views import MessageAddView
 from django.conf.urls.static import static
 from django.conf import settings
-from contact.forms import MessageForm
-
+from .api import router
 
 
 urlpatterns = [
@@ -29,4 +28,6 @@ urlpatterns = [
     url(r'^contact/$', MessageAddView.as_view()),
     url(r'^$', 'shelf.views.index_view', name='main-page'),
     url(r'^accounts/', include('allauth.urls')),
+    url(r'^api/', include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
